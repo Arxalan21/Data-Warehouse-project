@@ -10,6 +10,8 @@ Run this script to redefine the DDL structure of 'bronze' tables
 
 IF OBJECT_ID ('silver_crm_cust_info') IS NOT NULL
 	DROP TABLE silver_crm_cust_info;
+GO;
+
 CREATE TABLE silver_crm_cust_info(
 	cst_id INT,
 	cst_key NVARCHAR(50),
@@ -20,9 +22,13 @@ CREATE TABLE silver_crm_cust_info(
 	cst_create_date DATE,
 	dwh_create_date DATETIME2 DEFAULT GETDATE()
 );
-
+GO
+	
 IF OBJECT_ID ('silver_crm_prd_info') IS NOT NULL
 	DROP TABLE silver_crm_prd_info;
+
+GO
+	
 CREATE TABLE silver_crm_prd_info(
 	prd_id INT,
 	cat_id NVARCHAR(40),
@@ -34,9 +40,11 @@ CREATE TABLE silver_crm_prd_info(
 	prd_end_date DATE,
 	dwh_create_date DATETIME2 DEFAULT GETDATE()
 );
+GO
 
 IF OBJECT_ID ('silver_crm_sales_details') IS NOT NULL
 	DROP TABLE silver_crm_sales_details;
+GO
 CREATE TABLE silver_crm_sales_details(
 	sls_order_num NVARCHAR (40),
 	sls_prd_key  NVARCHAR(50),
@@ -49,10 +57,12 @@ CREATE TABLE silver_crm_sales_details(
 	sls_price INT,
 	dwh_create_date DATETIME2 DEFAULT GETDATE()
 );
-
+GO
+	
 
 IF OBJECT_ID ('silver_erp_PX_CAT_G1V2') IS NOT NULL
 	DROP TABLE silver_erp_PX_CAT_G1V2;
+GO
 CREATE TABLE silver_erp_PX_CAT_G1V2(
     ID  NVARCHAR(20),
 	CAT NVARCHAR(20),
@@ -61,24 +71,26 @@ CREATE TABLE silver_erp_PX_CAT_G1V2(
 	dwh_create_date DATETIME2 DEFAULT GETDATE()
 
 );
-
+GO
 
 IF OBJECT_ID ('silver_erp_LOC_A101') IS NOT NULL
 	DROP TABLE silver_erp_LOC_A101;
+GO
 CREATE TABLE silver_erp_LOC_A101(
 	CID NVARCHAR(30),
 	CNTRY NVARCHAR(20),
 	dwh_create_date DATETIME2 DEFAULT GETDATE()
 
 );
-
+GO
 
 IF OBJECT_ID ('silver_erp_CUST_AZ12') IS NOT NULL
 	DROP TABLE silver_erp_CUST_AZ12;
+GO
 CREATE TABLE silver_erp_CUST_AZ12(
     CID  NVARCHAR(50),
 	BDATE DATE,
 	GEN VARCHAR(10),
     dwh_create_date DATETIME2 DEFAULT GETDATE()
 );
-
+GO
